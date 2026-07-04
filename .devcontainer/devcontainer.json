@@ -1,0 +1,4 @@
+{
+  "postStartCommand": "gost.ss1.sh",
+  "name": "my"
+}
