@@ -28,7 +28,7 @@ jobs:
           # gh codespace start -c $cs || true # no 'start', use curl API
           curl -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
             https://api.github.com/user/codespaces/$cs/start -X POST | jq .state
-          n=10
+          n=20
           for i in $(seq $n); do
             state=$(gh codespace list --json name,state \
               -q ".[] | select(.name == \"$cs\") | .state")
@@ -42,7 +42,7 @@ jobs:
           gh codespace -c $cs ssh "nohup gost.ss1.sh >/tmp/gost.log 2>&1 &" || echo gost.ss1.sh failed
           gh codespace -c $cs ssh "pgrep gost" || echo no gost
           a='ok'
-          timeout 20 gh codespace -c $cs ports forward 8888:8888 2222:2222 || a='fail'  # timeout to break stuck!!! always stuck!!
+          timeout 20 gh codespace -c $cs ports forward 2222:2222 8888:8888 || a='fail'  # timeout to break stuck!!! always stuck!!
           echo port-forward $a
           a='ok'
           timeout 20 gh codespace -c $cs ports visibility 8888:public || a='fail'  # true/echo to avoid exit with error
