@@ -1,0 +1,35 @@
+#---------- win10 ----------
+# 2025.06 tcl1, 19GB, need do init
+
+# 2020.01, 14GB, password=username=surazzarus! disk ide/sd-ok virtio-fail. vbox-addon installed, so this is for vbox??
+# win10 pro 64 1909 2020.01.10 18363.418
+surazzarus/windows10
+sha256:7fc9853f2fe87c2b66485790079701c128ec850b84b1fd0433ac599c3db5535d
+
+
+
+
+
+
+#---------- win7 ------------
+
+# win7-ultimate-cn, 8.8GB, ~2*ph, why? system-backup/resotre on?
+gres_n=greshem/win7
+gres_p=sha256:78afdb5506843c8009eb1a46bec513dff7f03eb5ab700b870a8ca5282cebcdb3
+
+# win7-ultimate-pt(not en!), 4.4GB, chrome, ie8(not edge), 7z, jdk8
+ph_n=ph88/windows7
+ph_d=sha256:0b5ba93dcef404aa7affc332107e7d89c3ed3fca10942a54d7f8ccb4ac95ed20
+
+# win7-ultimate-en, 8.7GB, NEED passwd!
+wark_n=warking/ranchervm-win7x86
+wark_d=sha256:7c9dd3cfff6ae61a7fe8bc9ba3d20bb5b807c556cf2a092e0b28b711bc8ce80d
+
+# win7-starter-en, 2.2GB.
+sura_n=surazzarus/windows7-starter
+sura_d=sha256:49b143917d0302b214bbd7f75ae9dca53535f97c007f63df428449a6e05dca9d
+
+# win7-starter-en, 2.2GB. use sura instead.
+ll_n=llparse/vm-windows7
+ll_d=sha256:ee966369daffe5c02631e7267e3b8715e9b1146f18e24e98cf431a1b7a7bcb95
+
