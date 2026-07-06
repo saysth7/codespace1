@@ -39,8 +39,8 @@ jobs:
           [ $i = $n ] && echo 'Start Failed.' && exit 1
           gh codespace -c $cs ssh 'sudo su -c "echo 127.0.0.1 t >> /etc/hosts"'
           echo "---- try to start gost ----"
-          gh codespace -c $cs ssh "nohup gost.ss1.sh >/tmp/gost.log 2>&1 &"
-          gh codespace -c $cs ssh "pgrep gost"
+          gh codespace -c $cs ssh "nohup gost.ss1.sh >/tmp/gost.log 2>&1 &" || echo gost.ss1.sh failed
+          gh codespace -c $cs ssh "pgrep gost" || echo no gost
           a='ok'
           timeout 20 gh codespace -c $cs ports forward 8888:8888 2222:2222 || a='fail'  # timeout to break stuck!!! always stuck!!
           echo port-forward $a
