@@ -1,3 +1,9 @@
+#----------- win11 -----------
+# 2025.06 tcl1, 19GB, need do init(+5GB,zstd2.9GB), virtio qemu installed!! also installed: cloudbase-init
+tcl1/windows11-latest-x86_64
+sha256:a59dd6d2ae22dc7d90565a7f9c797138b84062b8115cd7ebb35d6748863e9a72
+
+
 #---------- win10 ----------
 # 2025.06 tcl1, 19GB, need do init
 

@@ -1,15 +1,16 @@
 #cd /workspaces/${GITHUB_REPOSITORY#*/}/win7
 #cd /workspaces/win/win7
-bk=/workspaces/codespace1/win11.tcl1.docker/win11pro-orig.qcow2
+bk=/tmp/tcl1/disk/windows11pro.qcow2
 f=/tmp/win11.qcow2
 [ -f $f ] && echo "warn: $f exist, backed up." && mv $f $f.bk
 #[ -f $f ] || cp win10-bk.qcow2 $f # github codespace keeps files, so not use git-lfs nor qcow2-inc-snapshot
 qemu-img create -b $bk -F qcow2 -f qcow2 $f
 sudo qemu-system-x86_64 -smp 2 -m 4G -vnc :0 \
- -machine q35 -nic user,model=rtl8139 -usbdevice tablet \
+ -machine q35,accel=kvm -nic user,model=virtio -usbdevice tablet \
  -monitor stdio \
  -enable-kvm \
- -drive file=$f,if=ide\
+ -drive file=$f,if=virtio \
+ -no-hpet
  #-drive file=$f,if=none,id=disk0 \
  #-device ich9-ahci,id=ahci \
  #-device ide-hd,drive=disk0,bus=ahci.0
